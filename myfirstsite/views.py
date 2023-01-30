@@ -20,7 +20,10 @@ def analyzer(request):
     tatext=request.GET.get('tatexthtml')
     rpdj=request.GET.get('rp')
     ucdj=request.GET.get('uc')
-    # nlrdj=request.GET.get('nlr')
+    nlrdj=request.GET.get('nlr')
+    t1dj=request.GET.get('t1')
+    t2dj=request.GET.get('t2')
+    lenstrdj=request.GET.get('lenstr')
 
     if(rpdj == 'on'):
         for x in '''!"#$%&'()*+, -./:;<=>?@[\]^_`{|}~''':
@@ -29,6 +32,19 @@ def analyzer(request):
     if(ucdj == 'on'):
         # print('came here!! I swear!!')
         tatext=tatext.upper()
+
+    if(nlrdj=='on'):
+        # print('inital text =', tatext)
+        tatext=str(tatext)
+        tatext=tatext.replace('\n', '*')
+        print(tatext)
+
+    # replacing:
+    tatext=tatext.replace(t1dj, t2dj)
+
+    if(lenstrdj=='on'):
+        tatext=len(tatext)
+        # print(tatext)
 
     tatext={'text': tatext}
     return render(request, 'analyzer.html', tatext)
