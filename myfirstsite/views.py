@@ -34,11 +34,8 @@ def analyzer(request):
         tatext=tatext.upper()
 
     if(nlrdj=='on'):
-        # print('inital text =', tatext)
-        tatext=str(tatext)
-        tatext=tatext.replace('\n', '*')
-        print(tatext)
-
+        tatext=' '.join(tatext.splitlines())
+        print("after newline removal: ", tatext)
     # replacing:
     tatext=tatext.replace(t1dj, t2dj)
 
@@ -46,8 +43,8 @@ def analyzer(request):
         tatext=len(tatext)
         # print(tatext)
 
-    tatext={'text': tatext}
-    return render(request, 'analyzer.html', tatext)
+    tatext_dict={'text': tatext}
+    return render(request, 'analyzer.html', tatext_dict)
 
 
 
