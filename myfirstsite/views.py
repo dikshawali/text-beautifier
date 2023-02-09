@@ -26,7 +26,7 @@ def analyzer(request):
     lenstrdj=request.GET.get('lenstr')
 
     if(rpdj == 'on'):
-        for x in '''!"#$%&'()*+, -./:;<=>?@[\]^_`{|}~''':
+        for x in '''!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~''':
             tatext=tatext.replace(x, '')
 
     if(ucdj == 'on'):
