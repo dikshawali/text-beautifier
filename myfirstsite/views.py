@@ -18,11 +18,11 @@ def fileread(request):
 
 def analyzer(request):
     tatext=request.GET.get('tatexthtml')
+    print(f'tatext is = {tatext}')
     rpdj=request.GET.get('rp')
     ucdj=request.GET.get('uc')
     nlrdj=request.GET.get('nlr')
-    t1dj=request.GET.get('t1')
-    t2dj=request.GET.get('t2')
+    
     lenstrdj=request.GET.get('lenstr')
 
     if(rpdj == 'on'):
@@ -36,9 +36,8 @@ def analyzer(request):
     if(nlrdj=='on'):
         tatext=' '.join(tatext.splitlines())
         print("after newline removal: ", tatext)
-    # replacing:
-    tatext=tatext.replace(t1dj, t2dj)
-
+    
+    
     if(lenstrdj=='on'):
         tatext=len(tatext)
         # print(tatext)
